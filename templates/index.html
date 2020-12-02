@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+
+    {% for row in userInfo %}
+    <tr>
+        <td>{{row["stock"]}}</td>
+        <td>{{stocksInfo[row["stock"]][1]}}</td>
+        <td>{{row["shares"]}}</td>
+        <td>{{stocksInfo[row["stock"]][0]}}</td>
+        <td>{{stocksInfo[row["stock"]][2]}}</td>
+    </tr>
+
+    {% endfor %}
+
+    <tr>
+        <td colspan="4">CASH</td>
+        <td>{{cash}}</td>
+    </tr>
+    <tfoot>
+        <tr>
+            <td colspan="4"></td>
+            <td>{{total}}</td>
+        </tr>
+    </tfoot>
+
+</table>
+{% endblock %}
